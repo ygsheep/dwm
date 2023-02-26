@@ -77,8 +77,8 @@ static const Rule rules[] = {
     /* class                 instance              title             tags mask     isfloating  isglobal    isnoborder monitor floatposition */
     /** 部分需要固定tag的规则 */
     {"obs",                  NULL,                 NULL,             1 << 3,       0,          0,          0,        -1,      0},
-    {"microsoft-edge-stable",               NULL,                 NULL,             1 << 4,       0,          0,          0,        -1,      0},
-    {"Chromium",             NULL,                 NULL,             1 << 4,       0,          0,          0,        -1,      0},
+    {"microsoft-edge-stable",NULL,                 NULL,             1 << 4,       0,          0,          0,        -1,      0},
+    {NULL,                   NULL,                 NULL,             1 << 4,       0,          0,          0,        -1,      0},
     {"music",                NULL,                 NULL,             1 << 5,       1,          0,          1,        -1,      0},
     { NULL,                 "qq",                  NULL,             1 << 6,       0,          0,          1,        -1,      0},
     { NULL,                 "wechat.exe",          NULL,             1 << 7,       0,          0,          0,        -1,      0},
@@ -93,6 +93,8 @@ static const Rule rules[] = {
     {"wemeetapp",            NULL,                 NULL,             TAGMASK,      1,          1,          0,        -1,      0}, // 腾讯会议在切换tag时有诡异bug导致退出 变成global来规避该问题
     {"scratchpad",          "scratchpad",         "scratchpad",      TAGMASK,      1,          1,          1,        -1,      2}, // scratchpad 全局、浮动、无边框 位置在屏幕顶部
     {"Pcmanfm",              NULL,                 NULL,             0,            1,          0,          1,        -1,      3}, // pcmanfm 默认浮动无边框且位于右上角落
+		{"utools",               NULL,                 NULL,             TAGMASK,      1,          1,          1,        -1,      0}, // 浮动 + 全局 + 无边框
+		{"deepin-compressor",    NULL,                 NULL,             0,            1,          0,          1,        -1,      0}, // 浮动 + 无边框
 
     /** 部分特殊class的规则 */
     {"float",                NULL,                 NULL,             0,            1,          0,          0,        -1,      0}, // 浮动
