@@ -23,6 +23,8 @@ daemons() {
     flameshot &                               # 截图要跑一个程序在后台 不然无法将截图保存到剪贴板
     dunst -conf ~/scripts/config/dunst.conf & # 开启通知server
     picom --experimental-backends --config=$HOME/scripts/config/picom.conf  & # 开启picom  --experimental-backends
+		startariang &
+		10 */1 * * * curl --data "userid=20225533238&passwd=093096&wlanuserip=10.19.213.46&wlanacname=BASE-ZC&wlanacIp=10.13.0.2&ssid=&vlan=2513&mac=d8%3Ac8%3Ae9%3A73%3A90%3A03&version=0&portalpageid=5&uuid=bdc440e6-8137-409d-b272-31cd5d4f76a7&portaltype=&hostname=JEF-AN00" http://10.12.0.12/quickauth.do
 }
 
 cron() {
@@ -30,7 +32,7 @@ cron() {
     let i=10
     while true; do
         [ $((i % 10)) -eq 0 ] && ~/scripts/set_screen.sh check # 每10秒检查显示器状态 以此自动设置显示器
-        [ $((i % 1800)) -eq 0 ] && feh --randomize --bg-fill ~/.wallpaper/*.png # 每300秒更新壁纸
+        [ $((i % 1800)) -eq 0 ] && feh --randomize --bg-fill ~/.wallpaper/*.jpg # 每300秒更新壁纸
         sleep 10; let i+=10
     done
 }
