@@ -62,7 +62,7 @@ static const char *tags[] = {
     "", // tag:6  key:m  desc:music
     "ﬄ", // tag:7  key:0  desc:qq
     "﬐", // tag:8  key:w  desc:wechat
-    "", // tag:9  key:l  desc:wxwork
+    "切", // tag:9  key:l  desc:thunderbird 
 };
 
 /* 自定义窗口显示规则 */
@@ -206,7 +206,7 @@ static Key keys[] = {
     TAGKEYS(XK_m, 5, "~/scripts/music_player.sh")
     TAGKEYS(XK_0, 6, "linuxqq")
     TAGKEYS(XK_w, 7, "/opt/apps/com.qq.weixin.spark/files/run.sh")
-    TAGKEYS(XK_l, 8, "/opt/apps/com.qq.weixin.work.deepin/files/run.sh")
+    TAGKEYS(XK_l, 8, "thunderbird")
 };
 static Button buttons[] = {
     /* click               event mask       button            function       argument  */
