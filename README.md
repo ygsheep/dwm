@@ -26,18 +26,21 @@ dwm 是一个非常快速, 小巧并使用动态管理窗口的窗口管理器
   sudo make clean install
 ```
 
-## 运行 dwm
+## !!!运行 dwm!!!
 
-将你的dwm源代码目录写入 ~/.profile, 例如  
+请确保你已配置 ~/.xinitrc 文件, DWM指向你的dwm仓库所在路径
 
 ```plaintext
 export DWM=~/workspace/dwm
+exec dwm
 ```
 
-将以下行添加到 .xinitrc 中来通过 `startx` 启动 dwm:  
+tty中执行 `startx` 启动
+
+如果想在tty1中自动执行startx可在你的bash或zsh配置中添加
 
 ```plaintext
-exec dwm
+  [ $(tty) = "/dev/tty1" ] && cd ~ && startx
 ```
 
 ## !!!关于fork配置!!!
@@ -127,7 +130,7 @@ exec dwm
 
 dwm启动时会去调用 $DWM/autostart.sh 脚本
 
-可参考 [autostart脚本](https://github.com/yaocccc/dwm/blob/master/autostart.sh)
+可参考 [autostart脚本](https://github.com/yaocccc/dwm/blob/master/DEF/autostart.sh)
 
 ## Q & A
 
@@ -184,27 +187,28 @@ yay -S wqy-microhei
 
 请检查DWM变量是否正确设置，如果实在不行了，可以直接强制改config.h 里的 autostartscript 和 statusbarscript 变量
 
-## 贡献者 THX
+## 贡献者 THX 🌻
 
 - [yaocccc](https://github.com/yaocccc)
+  - [MASTER](#TOP)
 - [p3psi-boo](https://github.com/p3psi-boo)
   - [PR#4 添加 Nix Flake 支持](https://github.com/yaocccc/dwm/pull/4)
 - [gxt-kt](https://github.com/gxt-kt)
   - [PR#7 修复hide/show窗口栈索引带来的无法恢复窗口的bug](https://github.com/yaocccc/dwm/pull/7)
+  - [PR#19 二维选中、交换窗口](https://github.com/yaocccc/dwm/pull/19)
 - [Ruixi-rebirth](https://github.com/Ruixi-rebirth)
   - [PR#12 优化flake](https://github.com/yaocccc/dwm/pull/12)
   - [PR#16 优化flake](https://github.com/yaocccc/dwm/pull/16)
+- [Int-0X7FFFFFFF](https://github.com/Int-0X7FFFFFFF)
+  - [PR#20 修复了音量在中文环境下一直显示静音的错误](https://github.com/yaocccc/dwm/pull/20)
+- [zainmiku](https://github.com/zainmiku)
+  - [PR#25 音乐标题包含"'时的处理](https://github.com/yaocccc/dwm/pull/25)
+  - [PR#29 音乐标题包含空格时的处理](https://github.com/yaocccc/dwm/pull/29)
 
 ## ENJOY IT 😃
 
-## Support
+## Support: buy me a coffee
 
 <a href="https://www.buymeacoffee.com/yaocccc" target="_blank">
   <img src="https://github.com/yaocccc/yaocccc/raw/master/qr.png">
-</a>
-
-<br>
-
-<a href="https://www.buymeacoffee.com/yaocccc" target="_blank">
-  <img src="https://cdn.buymeacoffee.com/buttons/v2/default-violet.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 200px !important;" >
 </a>
