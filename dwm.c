@@ -1730,7 +1730,8 @@ manage(Window w, XWindowAttributes *wa)
     c->bw = borderpx;
 
     updatetitle(c);
-    if (XGetTransientForHint(dpy, w, &trans) && (t = wintoclient(trans))) {
+    // managetransientwin 管理transient window，此时transient window也会调用applyrules
+    if (!managetransientwin && XGetTransientForHint(dpy, w, &trans) && (t = wintoclient(trans))) {
         c->mon = t->mon;
         c->tags = t->tags;
     } else {
@@ -2864,8 +2865,20 @@ toggleglobal(const Arg *arg)
 void
 toggleborder(const Arg *arg)
 {
+    int client_count = 0;
+    Client *c = NULL;
+    // 判断当前是否选中客户端
     if (!selmon->sel)
         return;
+    // 判断是否只有一个窗口
+    for (c = selmon->clients; c; c = c->next) {
+        if (ISVISIBLE(c) && !HIDDEN(c)) {
+            client_count ++;
+        }
+    }
+    if (client_count == 1) {
+        return;
+    }
     selmon->sel->isnoborder ^= 1;
     selmon->sel->bw = selmon->sel->isnoborder ? 0 : borderpx;
     int diff = (selmon->sel->isnoborder ? -1 : 1) * borderpx;
